@@ -135,76 +135,10 @@ if hist is not None:
     print(df)
 
 # Load NSE stock tickers (for example purpose, using a hardcoded list)
-nse_stocks = [
-    'TCS',          # Tata Consultancy Services
-    'INFY',         # Infosys
-    'RELIANCE',     # Reliance Industries
-    'HDFCBANK',     # HDFC Bank
-    'ICICIBANK',    # ICICI Bank
-    'SBIN',         # State Bank of India
-    'HINDUNILVR',   # Hindustan Unilever
-    'TITAN',        # Titan Company
-    'LT',           # Larsen & Toubro
-    'AXISBANK',     # Axis Bank
-    'KOTAKBANK',    # Kotak Mahindra Bank
-    'MARUTI',       # Maruti Suzuki
-    'BHARTIARTL',   # Bharti Airtel
-    'ADANIGREEN',   # Adani Green Energy
-    'BAJFINANCE',   # Bajaj Finance
-    'WIPRO',        # Wipro
-    'TATAMOTORS',   # Tata Motors
-    'SUNPHARMA',    # Sun Pharmaceutical Industries
-    'ONGC',         # Oil and Natural Gas Corporation
-    'HCLTECH',      # HCL Technologies
-    'ULTRACEMCO',   # UltraTech Cement
-    'POWERGRID',    # Power Grid Corporation of India
-    'ITC',          # ITC Limited
-    'JSWSTEEL',     # JSW Steel
-    'CIPLA',        # Cipla Limited
-    'NTPC',         # NTPC Limited
-    'INDUSINDBK',   # IndusInd Bank
-    'TECHM',        # Tech Mahindra
-    'GRASIM',       # Grasim Industries
-    'SHREECEM',     # Shree Cement
-    'TATASTEEL',    # Tata Steel
-    'HDFCLIFE',     # HDFC Life Insurance
-    'LTI',          # Larsen & Toubro Infotech
-    'TATACONSUMER', # Tata Consumer Products
-    'DIVISLAB',     # Divi's Laboratories
-    'DABUR',        # Dabur India
-    'HINDALCO',     # Hindalco Industries
-    'NMDC',         # NMDC Limited
-    'MINDTREE',     # Mindtree
-    'PIIND',        # PI Industries
-    'ABB',          # ABB India
-    'BOSCHLTD',     # Bosch Limited
-    'HAVELLS',      # Havells India
-    'JSWENERGY',    # JSW Energy
-    'MRF',          # MRF Limited
-    'INDIAMART',    # IndiaMART InterMESH
-    'SYNGENE',      # Syngene International
-    'ADANIPORTS',   # Adani Ports and SEZ
-    'AMBUJACEM',    # Ambuja Cements
-    'BERGEPAINT',   # Berger Paints India
-    'COLPAL',       # Colgate-Palmolive (India)
-    'RECLTD',       # Rural Electrification Corporation
-    'MGL',          # Mahanagar Gas
-    'COALINDIA',    # Coal India Limited
-    'KNRCON',       # KNR Constructions
-    'LUXIND',       # Lux Industries
-    'NATIONALUM',   # National Aluminium Company
-    'PFC',          # Power Finance Corporation
-    'SBI LIFE',     # SBI Life Insurance
-    'TATAELXSI',    # Tata Elxsi
-    'VOLTAS',       # Voltas Limited
-     'LTI'
-    # Example BSE Stocks
-    'HINDPETRO',    # Hindustan Petroleum Corporation
-    'TATAMETALI',   # Tata Metaliks
-    'BHEL',         # Bharat Heavy Electricals Limited
-    'LUPIN',        # Lupin Limited
-    'HDFC',         # HDFC Limited
-]
+df=pd.read_csv('Equity.csv')
+nse_stocks=df['Security Id'].to_list()
+
+nse_stocks =  ['TCS', 'INFY', 'RELIANCE', 'HDFCBANK', 'ICICIBANK', 'SBIN', 'HINDUNILVR', 'TITAN', 'LT', 'AXISBANK', 'KOTAKBANK', 'MARUTI', 'BHARTIARTL', 'ADANIGREEN', 'BAJFINANCE', 'WIPRO', 'TATAMOTORS', 'SUNPHARMA', 'ONGC', 'HCLTECH', 'ULTRACEMCO', 'POWERGRID', 'ITC', 'JSWSTEEL', 'CIPLA', 'NTPC', 'INDUSINDBK', 'TECHM', 'GRASIM', 'SHREECEM', 'TATASTEEL', 'HDFCLIFE', 'DIVISLAB', 'DABUR', 'HINDALCO', 'NMDC', 'PIIND', 'ABB', 'BOSCHLTD', 'HAVELLS', 'JSWENERGY', 'MRF', 'INDIAMART', 'SYNGENE', 'ADANIPORTS', 'AMBUJACEM', 'BERGEPAINT', 'COLPAL', 'RECLTD', 'MGL', 'COALINDIA', 'KNRCON', 'LUXIND', 'NATIONALUM', 'PFC', 'SBILIFE', 'TATAELXSI', 'VOLTAS', 'HINDPETRO', 'BHEL', 'LUPIN']
 
 
 # Ask user for the price range
