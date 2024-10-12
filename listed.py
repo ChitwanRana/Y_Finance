@@ -1,4 +1,5 @@
 import yfinance as yf
+import pandas as pd
 
 def filter_delisted_companies(stock_list):
     listed_companies = []
@@ -20,21 +21,25 @@ def filter_delisted_companies(stock_list):
     return listed_companies, delisted_companies
 
 # Stock list with possible delisted companies
-nse_stocks = [
-    'TCS', 'INFY', 'RELIANCE', 'HDFCBANK', 'ICICIBANK', 'SBIN', 'HINDUNILVR',
-    'TITAN', 'LT', 'AXISBANK', 'KOTAKBANK', 'MARUTI', 'BHARTIARTL',
-    'ADANIGREEN', 'BAJFINANCE', 'WIPRO', 'TATAMOTORS', 'SUNPHARMA', 'ONGC',
-    'HCLTECH', 'ULTRACEMCO', 'POWERGRID', 'ITC', 'JSWSTEEL', 'CIPLA', 'NTPC',
-    'INDUSINDBK', 'TECHM', 'GRASIM', 'SHREECEM', 'TATASTEEL', 'HDFCLIFE',
-    'LTI', 'TATACONSUMER', 'DIVISLAB', 'DABUR', 'HINDALCO', 'NMDC', 'MINDTREE',
-    'PIIND', 'ABB', 'BOSCHLTD', 'HAVELLS', 'JSWENERGY', 'MRF', 'INDIAMART',
-    'SYNGENE', 'ADANIPORTS', 'AMBUJACEM', 'BERGEPAINT', 'COLPAL', 'RECLTD',
-    'MGL', 'COALINDIA', 'KNRCON', 'LUXIND', 'NATIONALUM', 'PFC', 'SBILIFE',
-    'TATAELXSI', 'VOLTAS', 'HINDPETRO', 'TATAMETALI', 'BHEL', 'LUPIN', 'HDFC'
-]
+df=pd.read_csv('EQUITY_L.csv')
+nse_stocks=df['SYMBOL'].to_list()
+# nse_stocks = [
+#     'TCS', 'INFY', 'RELIANCE', 'HDFCBANK', 'ICICIBANK', 'SBIN', 'HINDUNILVR',
+#     'TITAN', 'LT', 'AXISBANK', 'KOTAKBANK', 'MARUTI', 'BHARTIARTL',
+#     'ADANIGREEN', 'BAJFINANCE', 'WIPRO', 'TATAMOTORS', 'SUNPHARMA', 'ONGC',
+#     'HCLTECH', 'ULTRACEMCO', 'POWERGRID', 'ITC', 'JSWSTEEL', 'CIPLA', 'NTPC',
+#     'INDUSINDBK', 'TECHM', 'GRASIM', 'SHREECEM', 'TATASTEEL', 'HDFCLIFE',
+#     'LTI', 'TATACONSUMER', 'DIVISLAB', 'DABUR', 'HINDALCO', 'NMDC', 'MINDTREE',
+#     'PIIND', 'ABB', 'BOSCHLTD', 'HAVELLS', 'JSWENERGY', 'MRF', 'INDIAMART',
+#     'SYNGENE', 'ADANIPORTS', 'AMBUJACEM', 'BERGEPAINT', 'COLPAL', 'RECLTD',
+#     'MGL', 'COALINDIA', 'KNRCON', 'LUXIND', 'NATIONALUM', 'PFC', 'SBILIFE',
+#     'TATAELXSI', 'VOLTAS', 'HINDPETRO', 'TATAMETALI', 'BHEL', 'LUPIN', 'HDFC'
+# ]
 
 # Run the filter
 listed_companies, delisted_companies = filter_delisted_companies(nse_stocks)
 
 print("Listed companies:", listed_companies)
 print("Possibly delisted companies:", delisted_companies)
+
+
