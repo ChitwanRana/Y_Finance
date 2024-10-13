@@ -13,8 +13,8 @@ def get_stock_data(ticker, start_date, end_date):
         if hist.empty:
             raise ValueError("No data available for the given input.")
 
-        # Calculate 5-day moving average
-        hist['5-Day MA'] = hist['Close'].rolling(window=5).mean()
+        # Calculate 50-Day moving average
+        hist['50-Day MA'] = hist['Close'].rolling(window=50).mean()
         return hist
     except Exception as e:
         print(f"An error occurred while fetching data for {ticker}: {e}")
@@ -104,18 +104,18 @@ if hist is not None:
     pd.set_option('display.max_rows', None)  # Display all rows
     pd.set_option('display.max_columns', None)  # Display all columns
 
-    # Print the stock's closing price and 5-day moving average
-    print(hist[['Close', '5-Day MA']])
+    # Print the stock's closing price and 50-Day moving average
+    print(hist[['Close', '50-Day MA']])
 
     # Plotting option
-    plot_input = input("Do you want to plot the stock price and 5-day moving average? (yes/no): ").lower()
+    plot_input = input("Do you want to plot the stock price and 50-Day moving average? (yes/no): ").lower()
 
     if plot_input == "yes":
-        # Plot the closing price and 5-day moving average on the same graph
+        # Plot the closing price and 50-Day moving average on the same graph
         plt.figure(figsize=(10, 5))
         plt.plot(hist.index, hist['Close'], label="Closing Price", color="blue")
-        plt.plot(hist.index, hist['5-Day MA'], label="5-Day Moving Average", color="orange")
-        plt.title(f"{ticker_input[:-3]} Stock Price and 5-Day Moving Average")  # Remove ".NS" for title
+        plt.plot(hist.index, hist['50-Day MA'], label="50-Day Moving Average", color="orange")
+        plt.title(f"{ticker_input[:-3]} Stock Price and 50-Day Moving Average")  # Remove ".NS" for title
         plt.xlabel("Date")
         plt.ylabel("Price")
         plt.xticks(rotation=90)
@@ -128,7 +128,7 @@ if hist is not None:
 
     # Save the data to an Excel file
     hist.to_excel(file_name)
-    print(f"Stock data with 5-Day Moving Average has been exported to {file_name}")
+    print(f"Stock data with 50-Day Moving Average has been exported to {file_name}")
 
     # Read back the Excel file to confirm
     df = pd.read_excel(file_name)
